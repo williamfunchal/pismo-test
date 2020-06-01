@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository;
 public interface AccountsRepository extends JpaRepository<Account, Long> {
 
     @Query(value = "SELECT Account_ID, Document_Number FROM Accounts a WHERE a.Account_ID = :accountIDParam", nativeQuery = true)
-    Account GetByAccountID(@Param("accountIDParam") Long accountID);
+    Account getByAccountID(@Param("accountIDParam") Long accountID);
 
 }
