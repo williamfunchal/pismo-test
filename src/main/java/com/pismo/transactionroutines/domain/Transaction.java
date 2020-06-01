@@ -74,7 +74,7 @@ public class Transaction {
     /**
      * @param eventDate the eventDate to set
      */
-    public void setText(Date eventDate) {
+    public void setEventDate(Date eventDate) {
         this.eventDate = eventDate;
     }
 
