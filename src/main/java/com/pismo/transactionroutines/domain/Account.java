@@ -8,17 +8,20 @@ public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long accountId;
+    private long accountId;
 
-    private Long documentNumber;
+    private long documentNumber;
+
+    private float availableCreditLimit;
 
     public Account(){
 
     }
 
-    public Account(Long accountID, Long documentNumber){
+    public Account(long accountId, long documentNumber, float availableCreditLimit){
         this.accountId = accountId;
         this.documentNumber = documentNumber;
+        this.availableCreditLimit = availableCreditLimit;
     }
 
     /**
@@ -47,5 +50,21 @@ public class Account {
      */
     public void setDocumentNumber(long documentNumber) {
         this.documentNumber = documentNumber;
+    }
+
+
+    /**
+     * @return the availableCreditLimit
+     */
+
+    public float getAvailableCreditLimit() {
+        return availableCreditLimit;
+    }
+
+    /**
+     * @param availableCreditLimit the documentNumber to set
+     */
+    public void setAvailableCreditLimit(float availableCreditLimit) {
+        this.availableCreditLimit = availableCreditLimit;
     }
 }
