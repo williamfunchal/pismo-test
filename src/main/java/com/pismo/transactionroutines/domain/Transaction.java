@@ -15,7 +15,7 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long transactionId;
 
-    private Long ammount;
+    private float ammount;
 
     private Date eventDate;
 
@@ -28,7 +28,7 @@ public class Transaction {
         
     }
 
-    public Transaction(Long transactionID, Long ammount, Date eventDate, Long operationTypeId, Long accountId){
+    public Transaction(Long transactionId, Float ammount, Date eventDate, Long operationTypeId, Long accountId){
         this.transactionId = transactionId;
         this.ammount = ammount;
         this.eventDate = eventDate;
@@ -44,23 +44,23 @@ public class Transaction {
     }
 
     /**
-     * @param transactionID the transactionID to set
+     * @param transactionId the transactionID to set
      */
-    public void setId(Long transactionID) {
-        this.transactionId = transactionID;
+    public void setId(Long transactionId) {
+        this.transactionId = transactionId;
     }
 
     /**
      * @return the ammount
      */
-    public Long getAmmount() {
+    public Float getAmmount() {
         return ammount;
     }
 
     /**
      * @param ammount the ammount to set
      */
-    public void setAmmount(Long ammount) {
+    public void setAmmount(Float ammount) {
         this.ammount = ammount;
     }
 

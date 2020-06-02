@@ -11,10 +11,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AccountsRepository extends CrudRepository<Account, Long> {
 
-    @Query(value = "SELECT account_id, document_number FROM accounts a WHERE a.account_id = :accountIdParam", nativeQuery = true)
+    @Query(value = "SELECT account_id, document_number, available_credit_limit FROM accounts a WHERE a.account_id = :accountIdParam", nativeQuery = true)
     Account getByAccountId(@Param("accountIdParam") Long accountId);
 
-    @Query(value = "SELECT account_id, document_number FROM accounts a WHERE a.document_number = :documentNumberParam", nativeQuery = true)
+    @Query(value = "SELECT account_id, document_number, available_credit_limit FROM accounts a WHERE a.document_number = :documentNumberParam", nativeQuery = true)
     Account getByDocumentNumber(@Param("documentNumberParam") Long documentNumber);
 
 }
