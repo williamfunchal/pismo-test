@@ -9,5 +9,5 @@ import org.springframework.stereotype.Service;
 public interface AccountService {
 
     Account insert(Account account);
-    Account getByAccountID(long accountId);
+    Account getByAccountId(long accountId);
 }

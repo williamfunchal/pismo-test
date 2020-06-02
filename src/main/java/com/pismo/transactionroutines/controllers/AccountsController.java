@@ -22,7 +22,7 @@ public class AccountsController {
     @RequestMapping(value = "/{accountID}", method = RequestMethod.GET)
     public Account getByAccountID(@PathVariable Long accountID) {
         try {
-            return accountService.getByAccountID(accountID);
+            return accountService.getByAccountId(accountID);
 
         } catch (AccountNotFoundException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Account Not Found", e);
