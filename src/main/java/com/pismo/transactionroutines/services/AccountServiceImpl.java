@@ -6,6 +6,7 @@ import com.pismo.transactionroutines.services.interfaces.AccountService;
 
 import com.pismo.transactionroutines.util.exceptions.AccountAlreadyExistsException;
 import com.pismo.transactionroutines.util.exceptions.AccountNotFoundException;
+import com.pismo.transactionroutines.util.exceptions.LimitNotSetException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +32,9 @@ public class AccountServiceImpl implements AccountService {
     public Account insert(Account account) {
         if (account == null)
             throw new RuntimeException();
+
+        if(account.getAvailableCreditLimit() <= 0)
+            throw new LimitNotSetException("Limit was not defined for Account");
 
         if (accountsRepository.getByAccountId(account.getAccountId()) != null)
             throw new AccountAlreadyExistsException("Account Already Exists");
