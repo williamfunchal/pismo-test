@@ -13,41 +13,41 @@ public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long transactionID;
+    private Long transactionId;
 
     private Long ammount;
 
     private Date eventDate;
 
-    private Long operationTypeID;
+    private Long operationTypeId;
 
-    private Long accountID;
+    private Long accountId;
 
 
     public Transaction(){
         
     }
 
-    public Transaction(Long transactionID, Long ammount, Date eventDate, Long operationTypeID, Long accountID){
-        this.transactionID = transactionID;
+    public Transaction(Long transactionID, Long ammount, Date eventDate, Long operationTypeId, Long accountId){
+        this.transactionId = transactionId;
         this.ammount = ammount;
         this.eventDate = eventDate;
-        this.operationTypeID = operationTypeID;
-        this.accountID = accountID;
+        this.operationTypeId = operationTypeId;
+        this.accountId = accountId;
     }
 
     /**
      * @return the transactionID
      */
     public Long getTransactionID() {
-        return transactionID;
+        return transactionId;
     }
 
     /**
      * @param transactionID the transactionID to set
      */
     public void setId(Long transactionID) {
-        this.transactionID = transactionID;
+        this.transactionId = transactionID;
     }
 
     /**
@@ -79,32 +79,32 @@ public class Transaction {
     }
 
     /**
-     * @return the operationTypeID
+     * @return the operationTypeId
      */
-    public Long getOperationTypeID() {
-        return this.operationTypeID;
+    public Long getOperationTypeId() {
+        return this.operationTypeId;
     }
 
 
     /**
-     * @param operationTypeID the operationTypeID to set
+     * @param operationTypeId the operationTypeId to set
      */
-    public void setOperationTypeID(Long operationTypeID) {
-        this.operationTypeID = operationTypeID;
+    public void setOperationTypeId(Long operationTypeId) {
+        this.operationTypeId = operationTypeId;
     }
 
     /**
-     * @return the accountID
+     * @return the accountId
      */
-    public Long getAccountID() {
-        return accountID;
+    public Long getAccountId() {
+        return accountId;
     }
 
     /**
      * @param accountID the accountID to set
      */
-    public void setAccountID(Long accountID) {
-        this.accountID = accountID;
+    public void setAccountId(Long accountID) {
+        this.accountId = accountId;
     }
 
 }

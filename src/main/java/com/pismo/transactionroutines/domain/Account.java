@@ -8,7 +8,7 @@ public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long accountID;
+    private Long accountId;
 
     private Long documentNumber;
 
@@ -17,7 +17,7 @@ public class Account {
     }
 
     public Account(Long accountID, Long documentNumber){
-        this.accountID = accountID;
+        this.accountId = accountId;
         this.documentNumber = documentNumber;
     }
 
@@ -25,14 +25,14 @@ public class Account {
      * @return the accountID
      */
     public Long getAccountId() {
-        return accountID;
+        return accountId;
     }
 
     /**
      * @param accountID the accountID to set
      */
-    public void setId(Long accountID) {
-        this.accountID = accountID;
+    public void setAccountId(Long accountId) {
+        this.accountId = accountId;
     }
 
     /**
