@@ -17,8 +17,8 @@ public class AccountServiceImpl implements AccountService {
         this.accountsRepository = accountsRepository;
     }
 
-    public Account getByAccountID(long accountId) {
-        return accountsRepository.getByAccountID(accountId);
+    public Account getByAccountId(long accountId) {
+        return accountsRepository.getByAccountId(accountId);
     }
 
     public Account insert(Account account) {
