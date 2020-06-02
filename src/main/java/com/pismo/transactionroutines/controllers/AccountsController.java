@@ -4,6 +4,7 @@ import com.pismo.transactionroutines.domain.Account;
 import com.pismo.transactionroutines.services.interfaces.AccountService;
 import com.pismo.transactionroutines.util.exceptions.AccountAlreadyExistsException;
 import com.pismo.transactionroutines.util.exceptions.AccountNotFoundException;
+import com.pismo.transactionroutines.util.exceptions.LimitNotSetException;
 import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -50,6 +51,9 @@ public class AccountsController {
         }
         catch (AccountAlreadyExistsException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Account Already Exists", e);
+        }
+        catch (LimitNotSetException e){
+            throw new ResponseStatusException(HttpStatus.NO_CONTENT, "Account Limit not Set", e);
         }
         catch (HibernateException e){
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Hibernate JPA Exception", e);

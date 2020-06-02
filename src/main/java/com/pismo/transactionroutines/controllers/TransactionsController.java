@@ -3,6 +3,7 @@ package com.pismo.transactionroutines.controllers;
 import com.pismo.transactionroutines.domain.Transaction;
 import com.pismo.transactionroutines.services.interfaces.TransactionService;
 import com.pismo.transactionroutines.util.exceptions.AccountNotFoundException;
+import com.pismo.transactionroutines.util.exceptions.AccountNotInformedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +28,8 @@ public class TransactionsController {
             return transactionService.insert(transaction);
         } catch (AccountNotFoundException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Account Not Found", e);
+        } catch (AccountNotInformedException e){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Account Not Informed", e);
         }
     }
 }
