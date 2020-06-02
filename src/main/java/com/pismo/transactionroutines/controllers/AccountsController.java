@@ -2,6 +2,7 @@ package com.pismo.transactionroutines.controllers;
 
 import com.pismo.transactionroutines.domain.Account;
 import com.pismo.transactionroutines.services.interfaces.AccountService;
+import com.pismo.transactionroutines.util.exceptions.AccountAlreadyExistsException;
 import com.pismo.transactionroutines.util.exceptions.AccountNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,8 +25,15 @@ public class AccountsController {
         try {
             return accountService.getByAccountId(accountID);
 
-        } catch (AccountNotFoundException e) {
+        }
+        catch (AccountNotFoundException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Account Not Found", e);
+        }
+        catch (AccountAlreadyExistsException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Account Already Exists", e);
+        }
+        catch (RuntimeException e){
+            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "", e);
         }
     }
 

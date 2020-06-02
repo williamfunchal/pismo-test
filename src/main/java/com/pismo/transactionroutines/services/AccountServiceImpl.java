@@ -4,6 +4,8 @@ import com.pismo.transactionroutines.domain.Account;
 import com.pismo.transactionroutines.repositories.AccountsRepository;
 import com.pismo.transactionroutines.services.interfaces.AccountService;
 
+import com.pismo.transactionroutines.util.exceptions.AccountAlreadyExistsException;
+import com.pismo.transactionroutines.util.exceptions.AccountNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,12 +20,20 @@ public class AccountServiceImpl implements AccountService {
     }
 
     public Account getByAccountId(long accountId) {
-        return accountsRepository.getByAccountId(accountId);
+        Account account = accountsRepository.getByAccountId(accountId);
+
+        if (account == null)
+            throw new AccountNotFoundException("Account not found");
+
+        return account;
     }
 
     public Account insert(Account account) {
         if (account == null)
             throw new RuntimeException();
+
+        if (accountsRepository.getByAccountId(account.getAccountId()) != null)
+            throw new AccountAlreadyExistsException("Account Already Exists");
 
         return accountsRepository.save(account);
     }
